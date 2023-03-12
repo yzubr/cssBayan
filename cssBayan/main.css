@@ -3,6 +3,10 @@
     padding: 0;
 }
 
+body {
+    scroll-behavior: smooth;
+}
+
 .container {
     margin: 0 auto;
     height: 200vh;
@@ -30,7 +34,16 @@
 
 }
 
-.acordeon:hover+label {
+.acordeon:hover label {
+    color: black;
+}
+
+.acordeon:hover .cross {
+    visibility: visible;
+}
+
+.acordeon:hover+label .cross {
+    visibility: visible;
     color: black;
 }
 
@@ -41,8 +54,8 @@
     display: block;
     align-items: center;
     box-sizing: border-box;
-    transition: color 0.5s, padding 0.5s;
     overflow: hidden;
+    transition: all 2s;
 }
 
 .acor-body img {
@@ -54,13 +67,22 @@
 }
 
 .acordeon label {
-    display: block;
+    display: flex;
+    justify-content: space-between;
     height: 7vh;
     width: 100%;
     border-top: 0.01em solid #5f615eb0;
     color: blue;
     font-weight: 700;
     line-height: 7vh;
+}
+
+.cross {
+    visibility: hidden;
+}
+
+.acordeon label span {
+    text-align: right;
 }
 
 .acordeon input {
@@ -70,18 +92,27 @@
 .acordeon input:checked+label+.acor-body {
     height: 100%;
     color: black;
-    transition: height .5s;
 }
 
 .acordeon input:checked+label {
     color: black;
 }
 
+.acordeon input:checked+label .cross {
+    visibility: visible;
+    transform: rotate(45deg);
+}
+
 .acordeon label:hover {
+    cursor: pointer;
     color: black;
 }
 
 .acordeon input:hover+label+.acor-body {
     height: 100%;
-    transition: height .5s;
+}
+
+.acordeon input:hover+label .cross {
+    visibility: visible;
+    transform: rotate(45deg);
 }
