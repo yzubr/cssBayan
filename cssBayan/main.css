@@ -1,0 +1,127 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    scroll-behavior: smooth;
+}
+
+.container {
+    margin: 0 auto;
+    height: 200vh;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #bde7b8;
+}
+
+.acor-title {
+    margin: 0 auto;
+    width: 100%;
+    color: black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 2em;
+    line-height: 3em;
+}
+
+.acordeon {
+    margin: 0 auto;
+    width: 50vw;
+}
+
+
+.acordeon:hover {
+    cursor: pointer;
+
+}
+
+.acordeon:hover label {
+    color: black;
+}
+
+.acordeon:hover .cross {
+    visibility: visible;
+}
+
+.acordeon:hover+label .cross {
+    visibility: visible;
+    color: black;
+}
+
+.acor-body {
+    cursor: pointer;
+    margin: 0 auto;
+    height: 0;
+    display: block;
+    align-items: center;
+    box-sizing: border-box;
+    overflow: hidden;
+    transition: all 0.5s;
+}
+
+.acor-body img {
+    width: 50%;
+    height: 50%;
+    display: block;
+    margin: 0 auto;
+    padding-bottom: 2.5%;
+}
+
+.acordeon label {
+    display: flex;
+    justify-content: space-between;
+    height: 7vh;
+    width: 100%;
+    border-top: 0.01em solid #5f615eb0;
+    color: blue;
+    font-weight: 700;
+    line-height: 3em;
+    transition: all 0.5s;
+}
+
+.cross {
+    visibility: hidden;
+}
+
+.acordeon label span {
+    text-align: right;
+}
+
+.acordeon input {
+    display: none;
+}
+
+.acordeon input:checked+label+.acor-body {
+    height: 100%;
+    color: black;
+}
+
+.acordeon input:checked+label {
+    color: black;
+}
+
+.acordeon input:checked+label .cross {
+    visibility: visible;
+    transform: rotate(45deg);
+}
+
+.acordeon label:hover {
+    cursor: pointer;
+    color: black;
+}
+
+.acordeon input:hover+label+.acor-body {
+    max-height: 100%;
+}
+
+.acordeon input:hover+label .cross {
+    visibility: visible;
+    transform: rotate(45deg);
+}
+
+
+@media (max-width: 320px) {
+    html {
+        font-size: 0.7rem;
+        line-height: 100%;
+    }
+}
